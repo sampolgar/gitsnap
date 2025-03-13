@@ -13,17 +13,26 @@
                 border: 1px solid #ccc;
                 padding: 10px;
             }
+
+            #structure {
+                margin-top: 20px;
+            }
+
+            #repoLink {
+                width: 400px;
+            }
         </style>
     </head>
 
     <body>
-        <h1>GitPeek</h1>
-        <form id="repoForm">
+        <h1>gitsnap</h1>
+        <div>
             <label for="repoLink">GitHub Repository Link:</label>
-            <input type="text" id="repoLink" name="repoLink" value="https://github.com/sampolgar/gitsnap"
-                style="width: 400px;" required>
-            <button type="submit">Process Repo</button>
-        </form>
+            <input type="text" id="repoLink" value="https://github.com/sampolgar/gitsnap" required>
+            <button id="queryRepo">Load Structure</button>
+        </div>
+        <div id="structure"></div>
+        <button id="processRepo">Generate Output</button>
         <pre id="output"></pre>
         <script src="script.js"></script>
     </body>
