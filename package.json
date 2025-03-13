@@ -1,0 +1,13 @@
+{
+  "name": "gitsnap",
+  "version": "1.0.0",
+  "description": "snap files for ai",
+  "main": "index.js",
+  "repository": "https://github.com/sampolgar/gitsnap.git",
+  "author": "samp <sampolgar@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.8.3",
+    "express": "^4.21.2"
+  }
+}
