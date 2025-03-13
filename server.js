@@ -5,31 +5,23 @@ const port = 3000;
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
+app.use(express.static("public"));
 
 // POST endpoint to process the repository link
 app.post("/process-repo", async (req, res) => {
   const { repoLink } = req.body;
   if (!repoLink) {
-    return res.status(400).send("Repository link is required");
+    return res.status(400).json({ error: "Repository link is required" });
   }
 
   try {
-    // Parse the repository link (owner, repo, and optional path)
     const { owner, repo, path } = parseRepoLink(repoLink);
-
-    // Build the directory tree structure
     const tree = await buildTree(owner, repo, path);
-
-    // Fetch file contents
     const fileContents = await getFileContents(owner, repo, path);
-
-    // Combine tree and contents into a single output
     const output = formatOutput(tree, fileContents);
-
-    // Send the response
-    res.send(output);
+    res.json({ output });
   } catch (error) {
-    res.status(500).send(`Error processing repository: ${error.message}`);
+    res.status(500).json({ error: error.message });
   }
 });
 

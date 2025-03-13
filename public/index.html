@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gitsnap</title>
+        <style>
+            #output {
+                white-space: pre;
+                overflow: auto;
+                max-height: 500px;
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>GitPeek</h1>
+        <form id="repoForm">
+            <label for="repoLink">GitHub Repository Link:</label>
+            <input type="text" id="repoLink" name="repoLink" value="https://github.com/sampolgar/gitsnap"
+                style="width: 400px;" required>
+            <button type="submit">Process Repo</button>
+        </form>
+        <pre id="output"></pre>
+        <script src="script.js"></script>
+    </body>
+
+</html>
